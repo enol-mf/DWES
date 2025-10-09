@@ -13,4 +13,9 @@
     echo "<br>";
     $frase = explode(' ',"Esto es una frase");
     print_r($frase);
+
+    array_find($gente);
+
+    $a=array("A","Cat","Dog","A","Dog","Dog");
+    print_r(array_count_values($a));
 ?>
