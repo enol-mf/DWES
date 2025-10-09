@@ -39,14 +39,39 @@
 // columnas en las que figurarán los idiomas (0 = Inglés, 1 = Francés, 2 = Alemán y 3
 // = Ruso). Mostrar por pantalla los alumnos que existen en cada nivel e idioma.
 
-$alumnos = array(
-    [1,14,8,3]
-    [6,19,7,2]
-    [3,13,4,1]
-)
+// $alumnos = array(
+//     [1,14,8,3],
+//     [6,19,7,2],
+//     [3,13,4,1]
+// );
 
-foreach ($variable as $key => $value) {
-    # code...
+// $nivel = array("Nivel básico ","Nivel medio ","Nivel de perfeccionamiento ");
+// $idiomas = array("Inglés ","Francés ","Alemán ","Ruso ");
+
+// for ($i = 0; $i < count($alumnos); $i++) {
+//     echo "<br>".$nivel[$i]."<br><br>";
+//     for ($j = 0; $j < count($alumnos[$i]); $j++) {
+//         echo $idiomas[$j].$alumnos[$i][$j]."<br>";
+//     };
+// };
+
+// 3. Almacena en un array los 10 primeros números pares. Imprímelos cada uno en
+// una línea.
+
+// $numsPares = array();
+
+// for ($i = 0; $i < 10; $i++) {
+//     $numsPares[$i] = $i * 2;
+// }
+// print_r($numsPares);
+
+// 4. Genera una matriz de 4*4 de forma aleatoria con números enteros desordenados
+// mostrar en un renglón los elementos almacenados en la diagonal principal y en el
+// siguiente los de la diagonal secundaria.
+
+$matriz = array();
+
+for ($i = 0; $i < 4; $i++) {
+    
 }
-
 ?>
