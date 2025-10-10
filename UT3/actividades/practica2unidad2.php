@@ -146,28 +146,62 @@
 // de cada fila y otro que contenga los promedios de los mismos. Imprimir ambos
 // vectores a razón de uno por renglón.
 
-for ($i = 0; $i < 3; $i++) {
-    for ($j = 0; $j < 4; $j++) {
-        $matriz[$i][$j] = rand(1, 10);
+// for ($i = 0; $i < 3; $i++) {
+//     for ($j = 0; $j < 4; $j++) {
+//         $matriz[$i][$j] = rand(1, 10);
+//     }
+// }
+
+// for ($i = 0; $i < 3; $i++) {
+//     for ($j = 0; $j < 4; $j++) {
+//         echo " ".($matriz[$i][$j]);
+//     }
+//     echo "<br>";
+// }
+
+// $vector = [];
+
+// for ($i = 0; $i < 3; $i++) {
+//     $maxFila = $matriz[$i][0];
+//     for ($j = 1; $j < 4; $j++) {    
+//         if ($maxFila < $matriz[$i][$j]) {
+//                 $maxFila = $matriz[$i][$j];
+//         }
+//     }
+//     $vector[$i] = $maxFila;   
+// }
+
+// print_r($vector);
+
+// 8. Hacer un algoritmo que llene una matriz de 10x10 con valores aleatorios y
+// determine la posición [fila, columna] del número mayor almacenado en la matriz.
+
+for ($i = 0; $i < 10; $i++) {
+    for ($j = 0; $j < 10; $j++) {
+        $matriz[$i][$j] = rand(1, 200);
     }
 }
 
-for ($i = 0; $i < 3; $i++) {
-    for ($j = 0; $j < 4; $j++) {
+for ($i = 0; $i < 10; $i++) {
+    for ($j = 0; $j < 10; $j++) {
         echo " ".($matriz[$i][$j]);
     }
     echo "<br>";
 }
 
-$vector = 0;
+$fila = 0;
+$columna = 0;
+$num = 0;
 
-for ($i = 0; $i < 3; $i++) {
-    for ($j = 0; $j < 4; $j++) {    
-       if ($vector < $matriz[$i]) {
-        $vector = $matriz[$i];
+for ($i = 0; $i < 10; $i++) {
+    for ($j = 0; $j < 10; $j++) {    
+       if ($num < $matriz[$i][$j]) {
+        $num = $matriz[$i][$j];
+        $fila = $i;
+        $columna = $j;
        }
     }
 }
 
-print_r($vector)
+    echo ("El mayor numero es $num en la fila $fila y en la columna $columna");
 ?>
