@@ -88,27 +88,28 @@
 // a. Imprimir todos los elementos en forma sucesiva tomándolos por fila.
 // b. Igual al anterior pero por columna.
 
-for ($i = 0; $i < 3; $i++) {
-    for ($j = 0; $j < 5; $j++) {
-        $matriz[$i][$j] = rand(1, 10);
-    }
-}
-
-for ($i = 0; $i < 3; $i++) {
-    for ($j = 0; $j < 5; $j++) {
-        echo " ".($matriz[$i][$j]);
-    }
-    echo "<br>";
-}
-
- echo "<br><br><br>";
-
-for ($i = 0; $i < 5; $i++) {
-    for ($j = 0; $j < 3; $j++) {
-        echo " ".($matriz[$j][$i]);
-    }
-    echo "<br>";
-}
+/* for ($i = 0; $i < 3; $i++) { */
+/*     for ($j = 0; $j < 5; $j++) { */
+/*         $matriz[$i][$j] = rand(1, 10); */
+/*     } */
+/* } */
+/**/
+/* for ($i = 0; $i < 3; $i++) { */
+/*     for ($j = 0; $j < 5; $j++) { */
+/*         echo " ".($matriz[$i][$j]); */
+/*     } */
+/*     echo "<br>"; */
+/* } */
+/**/
+/*  echo "<br><br><br>"; */
+/**/
+/* for ($i = 0; $i < 5; $i++) { */
+/*     for ($j = 0; $j < 3; $j++) { */
+/*         echo " ".($matriz[$j][$i]); */
+/*     } */
+/*     echo "<br>"; */
+/* } */
+/**/
 
 // 6. Generar de forma aleatoria una matriz de 4*5 con valores numéricos, determinar
 // fila y columna del elemento mayor.
@@ -204,4 +205,24 @@ for ($i = 0; $i < 5; $i++) {
 // }
 
 //     echo ("El mayor numero es $num en la fila $fila y en la columna $columna");
+//
+//
+//     9. Llenar una matriz de 20x20 con valores aleatorios. Sumar las columnas e
+//    imprimir la columna que tuvo la máxima suma y la suma de esa columna.
+
+  for ($i = 0; $i < 20; $i++) {
+      for ($j = 0; $j < 20; $j++) {
+           $matriz[$i][$j] = rand(1, 200);
+       }
+  }
+
+  for ($i = 0; $i < 20; $i++) {
+      for ($j = 0; $j < 20; $j++) {
+           echo " ".($matriz[$i][$j]);
+       }
+       echo "<br>";
+   }
+
+
+
 ?>
