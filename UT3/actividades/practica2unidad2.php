@@ -69,9 +69,93 @@
 // mostrar en un renglón los elementos almacenados en la diagonal principal y en el
 // siguiente los de la diagonal secundaria.
 
-$matriz = array();
+// $matriz = array();
+
+// for ($i = 0; $i < 4; $i++) {
+//     for ($j = 0; $j < 4; $j++) {
+//         $matriz[$i][$j] = rand(1, 10);
+//     }
+// }
+
+// for ($i = 0; $i < 4; $i++) {
+//     for ($j = 0; $j < 4; $j++) {
+//         echo " ".($matriz[$i][$j]);
+//     }
+//     echo "<br>";
+// }
+
+// 5. Generar de forma aleatoria una matriz de 3x5 con valores numéricos.
+// a. Imprimir todos los elementos en forma sucesiva tomándolos por fila.
+// b. Igual al anterior pero por columna.
+
+// for ($i = 0; $i < 3; $i++) {
+//     for ($j = 0; $j < 5; $j++) {
+//         $matriz[$i][$j] = rand(1, 10);
+//     }
+// }
+
+// for ($i = 0; $i < 3; $i++) {
+//     for ($j = 0; $j < 5; $j++) {
+//         echo " ".($matriz[$i][$j]);
+//     }
+//     echo "<br>";
+// }
+
+//  echo "<br><br><br>";
+
+// for ($i = 0; $i < 5; $i++) {
+//     for ($j = 0; $j < 3; $j++) {
+//         echo " ".($matriz[$j][$i]);
+//     }
+//     echo "<br>";
+// }
+
+// 6. Generar de forma aleatoria una matriz de 4*5 con valores numéricos, determinar
+// fila y columna del elemento mayor.
+
+// for ($i = 0; $i < 4; $i++) {
+//     for ($j = 0; $j < 5; $j++) {
+//         $matriz[$i][$j] = rand(1, 10);
+//     }
+// }
+
+// for ($i = 0; $i < 4; $i++) {
+//     for ($j = 0; $j < 5; $j++) {
+//         echo " ".($matriz[$i][$j]);
+//     }
+//     echo "<br>";
+// }
+
+// $fila = 0;
+// $columna = 0;
+// $num = 0;
+
+// for ($i = 0; $i < 4; $i++) {
+//     for ($j = 0; $j < 5; $j++) {    
+//        if ($num < $matriz[$i][$j]) {
+//         $num = $matriz[$i][$j];
+//         $fila = $i;
+//         $columna = $j;
+//        }
+//     }
+// }
+
+//     echo ("El mayor numero es $num en la fila $fila y en la columna $columna");
+
+// 7. Generar una matriz de 3x4 y generar un vector que contenga los valores máximos
+// de cada fila y otro que contenga los promedios de los mismos. Imprimir ambos
+// vectores a razón de uno por renglón.
 
 for ($i = 0; $i < 4; $i++) {
-    
+    for ($j = 0; $j < 5; $j++) {
+        $matriz[$i][$j] = rand(1, 10);
+    }
+}
+
+for ($i = 0; $i < 4; $i++) {
+    for ($j = 0; $j < 5; $j++) {
+        echo " ".($matriz[$i][$j]);
+    }
+    echo "<br>";
 }
 ?>
