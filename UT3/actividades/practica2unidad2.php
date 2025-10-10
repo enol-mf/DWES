@@ -39,21 +39,21 @@
 // columnas en las que figurarán los idiomas (0 = Inglés, 1 = Francés, 2 = Alemán y 3
 // = Ruso). Mostrar por pantalla los alumnos que existen en cada nivel e idioma.
 
-// $alumnos = array(
-//     [1,14,8,3],
-//     [6,19,7,2],
-//     [3,13,4,1]
-// );
+$alumnos = array(
+    [1,14,8,3],
+    [6,19,7,2],
+    [3,13,4,1]
+);
 
-// $nivel = array("Nivel básico ","Nivel medio ","Nivel de perfeccionamiento ");
-// $idiomas = array("Inglés ","Francés ","Alemán ","Ruso ");
+$nivel = array("Nivel básico ","Nivel medio ","Nivel de perfeccionamiento ");
+$idiomas = array("Inglés ","Francés ","Alemán ","Ruso ");
 
-// for ($i = 0; $i < count($alumnos); $i++) {
-//     echo "<br>".$nivel[$i]."<br><br>";
-//     for ($j = 0; $j < count($alumnos[$i]); $j++) {
-//         echo $idiomas[$j].$alumnos[$i][$j]."<br>";
-//     };
-// };
+for ($i = 0; $i < count($alumnos); $i++) {
+    echo "<br>".$nivel[$i]."<br><br>";
+    for ($j = 0; $j < count($alumnos[$i]); $j++) {
+        echo $idiomas[$j].$alumnos[$i][$j]."<br>";
+    };
+};
 
 // 3. Almacena en un array los 10 primeros números pares. Imprímelos cada uno en
 // una línea.
@@ -176,32 +176,32 @@
 // 8. Hacer un algoritmo que llene una matriz de 10x10 con valores aleatorios y
 // determine la posición [fila, columna] del número mayor almacenado en la matriz.
 
-for ($i = 0; $i < 10; $i++) {
-    for ($j = 0; $j < 10; $j++) {
-        $matriz[$i][$j] = rand(1, 200);
-    }
-}
+// for ($i = 0; $i < 10; $i++) {
+//     for ($j = 0; $j < 10; $j++) {
+//         $matriz[$i][$j] = rand(1, 200);
+//     }
+// }
 
-for ($i = 0; $i < 10; $i++) {
-    for ($j = 0; $j < 10; $j++) {
-        echo " ".($matriz[$i][$j]);
-    }
-    echo "<br>";
-}
+// for ($i = 0; $i < 10; $i++) {
+//     for ($j = 0; $j < 10; $j++) {
+//         echo " ".($matriz[$i][$j]);
+//     }
+//     echo "<br>";
+// }
 
-$fila = 0;
-$columna = 0;
-$num = 0;
+// $fila = 0;
+// $columna = 0;
+// $num = 0;
 
-for ($i = 0; $i < 10; $i++) {
-    for ($j = 0; $j < 10; $j++) {    
-       if ($num < $matriz[$i][$j]) {
-        $num = $matriz[$i][$j];
-        $fila = $i;
-        $columna = $j;
-       }
-    }
-}
+// for ($i = 0; $i < 10; $i++) {
+//     for ($j = 0; $j < 10; $j++) {    
+//        if ($num < $matriz[$i][$j]) {
+//         $num = $matriz[$i][$j];
+//         $fila = $i;
+//         $columna = $j;
+//        }
+//     }
+// }
 
-    echo ("El mayor numero es $num en la fila $fila y en la columna $columna");
+//     echo ("El mayor numero es $num en la fila $fila y en la columna $columna");
 ?>
