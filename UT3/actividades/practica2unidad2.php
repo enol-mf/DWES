@@ -146,16 +146,28 @@
 // de cada fila y otro que contenga los promedios de los mismos. Imprimir ambos
 // vectores a razón de uno por renglón.
 
-for ($i = 0; $i < 4; $i++) {
-    for ($j = 0; $j < 5; $j++) {
+for ($i = 0; $i < 3; $i++) {
+    for ($j = 0; $j < 4; $j++) {
         $matriz[$i][$j] = rand(1, 10);
     }
 }
 
-for ($i = 0; $i < 4; $i++) {
-    for ($j = 0; $j < 5; $j++) {
+for ($i = 0; $i < 3; $i++) {
+    for ($j = 0; $j < 4; $j++) {
         echo " ".($matriz[$i][$j]);
     }
     echo "<br>";
 }
+
+$vector = 0;
+
+for ($i = 0; $i < 3; $i++) {
+    for ($j = 0; $j < 4; $j++) {    
+       if ($vector < $matriz[$i]) {
+        $vector = $matriz[$i];
+       }
+    }
+}
+
+print_r($vector)
 ?>
