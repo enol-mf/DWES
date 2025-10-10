@@ -39,21 +39,21 @@
 // columnas en las que figurarán los idiomas (0 = Inglés, 1 = Francés, 2 = Alemán y 3
 // = Ruso). Mostrar por pantalla los alumnos que existen en cada nivel e idioma.
 
-$alumnos = array(
-    [1,14,8,3],
-    [6,19,7,2],
-    [3,13,4,1]
-);
+// $alumnos = array(
+//     [1,14,8,3],
+//     [6,19,7,2],
+//     [3,13,4,1]
+// );
 
-$nivel = array("Nivel básico ","Nivel medio ","Nivel de perfeccionamiento ");
-$idiomas = array("Inglés ","Francés ","Alemán ","Ruso ");
+// $nivel = array("Nivel básico ","Nivel medio ","Nivel de perfeccionamiento ");
+// $idiomas = array("Inglés ","Francés ","Alemán ","Ruso ");
 
-for ($i = 0; $i < count($alumnos); $i++) {
-    echo "<br>".$nivel[$i]."<br><br>";
-    for ($j = 0; $j < count($alumnos[$i]); $j++) {
-        echo $idiomas[$j].$alumnos[$i][$j]."<br>";
-    };
-};
+// for ($i = 0; $i < count($alumnos); $i++) {
+//     echo "<br>".$nivel[$i]."<br><br>";
+//     for ($j = 0; $j < count($alumnos[$i]); $j++) {
+//         echo $idiomas[$j].$alumnos[$i][$j]."<br>";
+//     };
+// };
 
 // 3. Almacena en un array los 10 primeros números pares. Imprímelos cada uno en
 // una línea.
@@ -88,27 +88,27 @@ for ($i = 0; $i < count($alumnos); $i++) {
 // a. Imprimir todos los elementos en forma sucesiva tomándolos por fila.
 // b. Igual al anterior pero por columna.
 
-// for ($i = 0; $i < 3; $i++) {
-//     for ($j = 0; $j < 5; $j++) {
-//         $matriz[$i][$j] = rand(1, 10);
-//     }
-// }
+for ($i = 0; $i < 3; $i++) {
+    for ($j = 0; $j < 5; $j++) {
+        $matriz[$i][$j] = rand(1, 10);
+    }
+}
 
-// for ($i = 0; $i < 3; $i++) {
-//     for ($j = 0; $j < 5; $j++) {
-//         echo " ".($matriz[$i][$j]);
-//     }
-//     echo "<br>";
-// }
+for ($i = 0; $i < 3; $i++) {
+    for ($j = 0; $j < 5; $j++) {
+        echo " ".($matriz[$i][$j]);
+    }
+    echo "<br>";
+}
 
-//  echo "<br><br><br>";
+ echo "<br><br><br>";
 
-// for ($i = 0; $i < 5; $i++) {
-//     for ($j = 0; $j < 3; $j++) {
-//         echo " ".($matriz[$j][$i]);
-//     }
-//     echo "<br>";
-// }
+for ($i = 0; $i < 5; $i++) {
+    for ($j = 0; $j < 3; $j++) {
+        echo " ".($matriz[$j][$i]);
+    }
+    echo "<br>";
+}
 
 // 6. Generar de forma aleatoria una matriz de 4*5 con valores numéricos, determinar
 // fila y columna del elemento mayor.
