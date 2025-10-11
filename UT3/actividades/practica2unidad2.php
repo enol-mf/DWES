@@ -221,7 +221,7 @@
            echo " ".($matriz[$i][$j]);
        }
        echo "<br>";
-   }
+  }
 
 
 
