@@ -1,18 +1,18 @@
 <?php
 
-    if (isset($_POST['resultado'])) $resultado = $_POST['resultado'];
-    else $resultado = "(Not entered)";
+    if (isset($_POST['num1']) && isset($_POST['num2'])) {
+        $num1 = $_POST['num1'];
+        $num2 = $_POST['num2'];  
+        $resultado = $num1 + $num2;
 
-    $num1 = 0;
-    $num2 = 0;  
-    $resultado = $num1 + $num2;
+        echo "<p> El resultado es: $resultado </p>";
 
+    } else
+    
     echo <<<_END
     <html>
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
+        <title>Suma numeros</title>
     </head>
     <body>
         <form action="pruebaNums.php" method="post">
@@ -24,7 +24,6 @@
         <br><br>
         <input type="submit" value="Sumar">
         </form>
-        <p> El resultado es: $resultado </p>
 
     </body>
     </html>
