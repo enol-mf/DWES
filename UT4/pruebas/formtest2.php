@@ -1,6 +1,6 @@
 <?php // formtest2.php
-    if (isset($_POST['name'])) $name = $_POST['name'];
-    else $name = "(Not entered)";
+    if (isset($_POST['name'])) echo "$_POST['name']";
+    // else $name = "(Not entered)";
     echo <<<_END
         <html>
             <head>
