@@ -18,7 +18,7 @@ $num = $_POST['num'];
 
     for ($i = 1; $i<11; $i++) {
         echo <<<_END
-        <form action="formularioDinamico.php" method="post">
+
         <label>Numero $i</label> <input type="text" name="num[]">
         <br><br>
 
