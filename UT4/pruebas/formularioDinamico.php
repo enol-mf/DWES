@@ -3,7 +3,6 @@
 if (isset($_POST['num'])) {
 $num = $_POST['num'];
     for ($i = 1; $i<count($num); $i++) {
-        
         echo "<p> El numero $i es: $num[$i] </p>";
     } 
 } else {
