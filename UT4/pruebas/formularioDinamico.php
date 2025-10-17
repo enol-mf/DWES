@@ -2,8 +2,9 @@
 
 if (isset($_POST['num'])) {
 $num = $_POST['num'];
-    for ($i = 1; $i<count($num); $i++) {
-        echo "<p> El numero $i es: $num[$i] </p>";
+    for ($i = 0; $i<count($num); $i++) {
+        $n = $i+1;
+        echo "<p> El numero $n es: $num[$i] </p>";
     } 
 } else {
     echo <<<_END
