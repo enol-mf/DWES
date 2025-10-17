@@ -17,7 +17,7 @@ $num = $_POST['num'];
 
     _END;
     $cajas = $_POST['cajas'];
-    for ($i = 1; $i<$cajas+1; $i++) {
+    for ($i = 0; $i<$cajas; $i++) {
         echo <<<_END
         <form action="formularioDinamico.php" method="post">
         <label>Numero $i</label> <input type="text" name="num[]">
