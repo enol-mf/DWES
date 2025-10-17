@@ -24,6 +24,7 @@
 
         </body>
         </html>
+        
         _END;
 
     } else
@@ -46,6 +47,7 @@
 
     </body>
     </html>
+
     _END;
 
 ?>
