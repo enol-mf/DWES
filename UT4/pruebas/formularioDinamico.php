@@ -21,7 +21,6 @@ $num = $_POST['num'];
         <form action="formularioDinamico.php" method="post">
         <label>Numero $i</label> <input type="text" name="num[]">
         <br><br>
-
         _END;
 
     }
