@@ -1,6 +1,7 @@
 <?php
 
     if (isset($_POST['nom']) && isset($_POST['ape']) && isset($_POST['edad']) && isset($_POST['profe']) && isset($_POST['sexo']) && isset($_POST['nav'])) {
+
         $nom = $_POST['nom'];
         $ape = $_POST['ape'];
         $edad = $_POST['edad'];
@@ -29,9 +30,9 @@
         </head>
         <body>
             <form action="formularioCompleto.php" method="post">
-                <label for="">Nombre: </label> <input type="text" name="nom" id="nom"> <br>
-                <label for="">Apellido: </label> <input type="text" name="ape" id="ape"> <br>
-                <label for="">Edad: </label> <input type="number" name="edad" id="edad" max="99"> <br>
+                <label for="">Nombre: </label> <input type="text" name="nom"> <br>
+                <label for="">Apellido: </label> <input type="text" name="ape"> <br>
+                <label for="">Edad: </label> <input type="number" name="edad" max="99"> <br>
                 <label for="">Profesión: </label>   <select name="profe">
                     <option value="Bombero">Bombero</option>
                     <option value="Profesor">Profesor</option>
@@ -47,8 +48,7 @@
             </form>
         </body>
         </html>
-        
-    _END;
 
+    _END;
 
 ?>
