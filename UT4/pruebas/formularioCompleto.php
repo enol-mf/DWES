@@ -7,7 +7,8 @@
         $profe = $_POST['profe'];
         $sexo = $_POST['sexo'];
         $nav = $_POST['nav'];
-          
+
+        $navs = implode(", ", $nav);
 
         echo <<<_END
         <p> Nombre: $nom </p>
@@ -15,7 +16,9 @@
         <p> Edad: $edad </p>
         <p> Profesión: $profe </p>
         <p> Sexo: $sexo </p>
-        <p> Navegador: $nav </p>
+        <p> Navegador: $navs </p>
+
+
 
         _END;
 
@@ -38,9 +41,9 @@
                 </select> <br>
                 <label for="">Sexo: </label> <input type="radio" name="sexo" value="Hombre"> <label for="">Hombre</label> <input type="radio" name="sexo" value="Mujer"> <label for="">Mujer</label> <br>
                 <label for="">Navegador usado: </label>
-                <input type="checkbox" name="nav" id="" value="Safari"> <label for="">Safari</label> 
-                <input type="checkbox" name="nav" id="" value="Chrome"> <label for="">Chrome</label> 
-                <input type="checkbox" name="nav" id="" value="Firefox"> <label for="">Firefox</label>
+                <input type="checkbox" name="nav[]" id="" value="Safari"> <label for="">Safari</label> 
+                <input type="checkbox" name="nav[]" id="" value="Chrome"> <label for="">Chrome</label> 
+                <input type="checkbox" name="nav[]" id="" value="Firefox"> <label for="">Firefox</label>
                 <br>
                 <input type="submit" value="Enviar">
             </form>
