@@ -18,8 +18,6 @@
         <p> Sexo: $sexo </p>
         <p> Navegador: $navs </p>
 
-
-
         _END;
 
     } else
@@ -49,6 +47,7 @@
             </form>
         </body>
         </html>
+        
     _END;
 
 
