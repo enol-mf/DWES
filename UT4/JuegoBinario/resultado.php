@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 
 $binario = $_SESSION['numAleatorio'];
