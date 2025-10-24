@@ -26,14 +26,24 @@ for ($i = 0; $i < 4; $i++) {
 ?>
     </p>
     <br>
-    <div class="contenedor">
-        <img src="8.JPG" alt="" height="150px">
-        <img src="4.JPG" alt="" height="150px">
-        <img src="2.JPG" alt="" height="150px">
-        <img src="1.JPG" alt="" height="150px">
-    </div>
+
+    <?php
+        for ($i = 0; $i<4; $i++) {
+            if ($numAleatorio[$i] == 1) {
+               echo <<<_END
+               <img src="$i.JPG" height="150px">
+               _END;
+            } else {
+                echo <<<_END
+               <img src="n.JPG" height="150px">
+               _END;
+            }
+        }
+    ?>
+
+
     <br>
-    <label for="">Número decimal: </label> <input type="text" class="respuesta">
+    <label for="">Número decimal: </label> <input type="text" class="respuesta" name="respuesta">
 </body>
 </html>
 
