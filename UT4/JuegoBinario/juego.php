@@ -6,6 +6,8 @@ for ($i = 0; $i < 4; $i++) {
     $numAleatorio[$i] = rand(0, 1);
 }
 
+$_SESSION['numAleatorio'] = implode('', $numAleatorio);
+
 ?>
 
 <!DOCTYPE html>
@@ -15,7 +17,7 @@ for ($i = 0; $i < 4; $i++) {
 </head>
 <body>
     <h1>Adivina el número binario!</h1>
-
+<form action="resultado.php" method="post">
     <label for="">Número en binario: </label> <p>
 
     <?php
@@ -43,7 +45,12 @@ for ($i = 0; $i < 4; $i++) {
 
 
     <br>
-    <label for="">Número decimal: </label> <input type="text" class="respuesta" name="respuesta">
+
+        <label for="">Número decimal: </label> <input type="text" class="respuesta" name="respuesta">
+        <br>
+        <input type="submit">
+    </form>
+
 </body>
 </html>
 
