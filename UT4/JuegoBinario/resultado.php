@@ -8,6 +8,7 @@ if (bindec($binario) == $respuesta) {
     echo "La respuesta es correcta";
 } else {
     echo "La respueta no es correcta";
+    echo "La respuesta correcta era:  ".bindec($binario);
 }
 
 ?>
