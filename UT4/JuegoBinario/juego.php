@@ -41,7 +41,7 @@ $_SESSION['numAleatorio'] = implode('', $numAleatorio);
                _END;
             }
         }
-    ?>
+?>
 
 
     <br>
