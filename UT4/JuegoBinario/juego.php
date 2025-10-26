@@ -14,6 +14,7 @@ $_SESSION['numAleatorio'] = implode('', $numAleatorio);
 <html lang="en">
 <head>
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h1>Adivina el número binario!</h1>
