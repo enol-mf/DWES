@@ -19,7 +19,7 @@ $_SESSION['numAleatorio'] = implode('', $numAleatorio);
 <body>
     <h1>Adivina el número binario!</h1>
 <form action="resultado.php" method="post">
-    <label for="">Número en binario: </label> <p>
+    <lab el for="">Número en binario: </label> <p>
 
     <?php
 
