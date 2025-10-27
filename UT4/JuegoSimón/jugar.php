@@ -24,7 +24,7 @@ $combi = $_SESSION['numAleatorio'];
         
     <br>
     <div class="contenedor">
-        <input type="button" value="ROJO" class="r">
+        <input type="button" value="ROJO" class="r" onclick="">
         <input type="button" value="AZUL" class="b">
         <input type="button" value="AMARILLO" class="y">
         <input type="button" value="VERDE" class="g">
