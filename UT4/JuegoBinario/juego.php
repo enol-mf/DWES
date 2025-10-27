@@ -34,11 +34,11 @@ $_SESSION['numAleatorio'] = implode('', $numAleatorio);
         for ($i = 0; $i<4; $i++) {
             if ($numAleatorio[$i] == 1) {
                echo <<<_END
-               <img src="$i.JPG" height="150px">
+               <img src="$i.JPG" height="250px">
                _END;
             } else {
                 echo <<<_END
-               <img src="n.JPG" height="150px">
+               <img src="n.JPG" height="250px">
                _END;
             }
         }
