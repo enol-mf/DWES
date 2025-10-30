@@ -26,6 +26,7 @@ $_SESSION['numAleatorio'] = implode('', $numAleatorio);
                <img src="$numAleatorio[$i].png" height="200px">
                _END;
         }
+        
 ?>
     <br>
     <input type="submit">
