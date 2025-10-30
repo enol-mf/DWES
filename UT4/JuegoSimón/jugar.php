@@ -2,7 +2,6 @@
 session_start();
 $combi = $_SESSION['numAleatorio'];
 
-
 if (isset($_POST['color0'])) {
     $jugada = $_POST['color0'] . $_POST['color1'] . $_POST['color2'] . $_POST['color3'];
 
