@@ -16,7 +16,6 @@ if (isset($_POST['color0'])) {
             $c = $combi[$i];
             echo "<img src='{$c}.png' height='150px'>";
         }
-
         echo "<p>Tu combinación fue:</p>";
         for ($i = 0; $i < 4; $i++) {
             $c = $jugada[$i];
