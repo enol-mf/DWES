@@ -25,7 +25,7 @@ if (isset($_POST['dificultad'])) {
         <h2>Selecciona la dificultad</h2>
         <select name="dificultad">
             <?php
-            for ($i = 4; $i <= 10; $i++) {
+            for ($i = 4; $i <= 8; $i++) {
                 $selected = ($i == $dificultad) ? 'selected' : '';
                 echo "<option value='$i' $selected>$i</option>";
             }
