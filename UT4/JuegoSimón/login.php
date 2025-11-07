@@ -1,18 +1,18 @@
 <?php
-    $hn = 'localhost';
-    $db = 'bdsimon';
-    $un = 'root';
-    $pw = ''; 
-?>
+$hn = 'localhost:3307';
+$db = 'bdsimon';
+$un = 'root';
+$pw = '';
+$connection = new mysqli($hn, $un, $pw, $db);
 
-<?php
-    require_once 'login.php';
-    $conn = new mysqli($hn, $un, $pw, $db); 
-    if ($conn->connect_error) die("Fatal Error"); 
-?>
+$query = "SELECT Nombre FROM usuarios";
 
-<?php
-    $query = "SELECT * FROM classics";
-    $result = $conn->query($query);
-    if (!$result) die("Fatal Error");
-?> 
+     if ($connection->connect_error) die("Fatal Error");
+     $result = $connection->query($query);
+     if (!$result) die("Fatal Error");
+     $rows = $result->num_rows;
+     for ($j = 0 ; $j < $rows ; ++$j) {
+         $result->data_seek($j);
+         echo 'usuarios: ' .htmlspecialchars($result->fetch_assoc()['Nombre']) .'<br>';
+     }
+?>
