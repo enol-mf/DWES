@@ -19,9 +19,9 @@ $ganaste = ($correcta === $jugada);
     <h1>Resultado</h1>
 
     <?php if ($ganaste): ?>
-        <h2>¡Ganaste! 🎉</h2>
+        <h2>¡Ganaste!</h2>
     <?php else: ?>
-        <h2>Perdiste 😢</h2>
+        <h2>Perdiste</h2>
         <p>La combinación correcta era:</p>
         <?php
         for ($i = 0; $i < 4; $i++) {
