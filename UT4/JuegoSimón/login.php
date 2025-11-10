@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 <form method="post">
-    Usuario: <input type="text" name="nombre"><br>
-    Clave: <input type="password" name="clave"><br>
+    <label>Usuario:</label> <input type="text" name="nombre"><br>
+    <label>Clave:</label> <input type="password" name="clave"><br>
     <input type="submit" value="Entrar">
 </form>
