@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($resultado->num_rows > 0) {
         $row = $resultado->fetch_assoc();
-        $_SESSION['nombre'] = $row['Nombre']; // ✅ Guardamos el nombre del usuario
+        $_SESSION['nombre'] = $row['Nombre']; //  Guardamos el nombre del usuario
         header("Location: inicio3.php");
         exit();
     } else {

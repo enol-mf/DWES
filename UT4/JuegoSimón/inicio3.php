@@ -33,7 +33,7 @@ if (isset($_POST['dificultad']) && isset($_POST['numColores'])) {
 </head>
 <body>
     <form action="" method="post">
-        <h1>Bienvenido, <?php echo $_SESSION['nombre']; ?> 👋</h1>
+        <h1>Bienvenido, <?php echo $_SESSION['nombre']; ?></h1>
         <h2>Selecciona la dificultad</h2>
         <select name="dificultad">
             <?php
