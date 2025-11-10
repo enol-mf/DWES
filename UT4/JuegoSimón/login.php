@@ -12,7 +12,7 @@ $query = "SELECT Nombre FROM usuarios";
      if (!$result) die("Fatal Error");
      $rows = $result->num_rows;
      for ($j = 0 ; $j < $rows ; ++$j) {
-         $result->data_seek($j);
-         echo 'usuarios: ' .htmlspecialchars($result->fetch_assoc()['Nombre']) .'<br>';
+        $result->data_seek($j);
+        echo 'usuarios: ' .htmlspecialchars($result->fetch_assoc()['Nombre']) .'<br>';
      }
 ?>
