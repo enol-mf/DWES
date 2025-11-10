@@ -36,7 +36,7 @@ $resultado = $conexion->query($sql);
     </style>
 </head>
 <body>
-    <h1>📊 Estadísticas de Jugadores</h1>
+    <h1> Estadísticas de Jugadores</h1>
     <table>
         <tr>
             <th>Código</th>
