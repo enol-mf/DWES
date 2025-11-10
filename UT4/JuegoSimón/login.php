@@ -1,12 +1,16 @@
 <?php
-$conexion = new mysqli("localhost", "root", "", "bdsimon");
+$conexion = new mysqli("localhost:3307", "root", "", "bdsimon");
+if ($conexion->connect_error) {
+    die("Error de conexión");
+}
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nombre = $_POST["nombre"];
     $clave = $_POST["clave"];
     $sql = "SELECT * FROM usuarios WHERE Nombre='$nombre' AND Clave='$clave'";
     $resultado = $conexion->query($sql);
     if ($resultado->num_rows > 0) {
-        echo "Login correcto";
+        header("Location: inicio3.php");
+        exit();
     } else {
         echo "Usuario o clave incorrectos";
     }
