@@ -1,18 +1,19 @@
 <?php
-$hn = 'localhost:3307';
-$db = 'bdsimon';
-$un = 'root';
-$pw = '';
-$connection = new mysqli($hn, $un, $pw, $db);
-
-$query = "SELECT Nombre FROM usuarios";
-
-     if ($connection->connect_error) die("Fatal Error");
-     $result = $connection->query($query);
-     if (!$result) die("Fatal Error");
-     $rows = $result->num_rows;
-     for ($j = 0 ; $j < $rows ; ++$j) {
-        $result->data_seek($j);
-        echo 'usuarios: ' .htmlspecialchars($result->fetch_assoc()['Nombre']) .'<br>';
-     }
+$conexion = new mysqli("localhost", "root", "", "bdsimon");
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $nombre = $_POST["nombre"];
+    $clave = $_POST["clave"];
+    $sql = "SELECT * FROM usuarios WHERE Nombre='$nombre' AND Clave='$clave'";
+    $resultado = $conexion->query($sql);
+    if ($resultado->num_rows > 0) {
+        echo "Login correcto";
+    } else {
+        echo "Usuario o clave incorrectos";
+    }
+}
 ?>
+<form method="post">
+    Usuario: <input type="text" name="nombre"><br>
+    Clave: <input type="password" name="clave"><br>
+    <input type="submit" value="Entrar">
+</form>
