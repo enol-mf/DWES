@@ -43,7 +43,6 @@ $resultado = $conexion->query($sql);
             <th>Nombre</th>
             <th>Total Jugadas</th>
             <th>Aciertos</th>
-            <th>Gráfico</th>
         </tr>
         <?php while ($fila = $resultado->fetch_assoc()): 
             $porcentaje = ($fila['total_jugadas'] > 0) ? 
@@ -54,12 +53,6 @@ $resultado = $conexion->query($sql);
             <td><?= htmlspecialchars($fila['Nombre']) ?></td>
             <td><?= $fila['total_jugadas'] ?></td>
             <td><?= $fila['total_aciertos'] ?></td>
-            <td>
-                <div style="width:100%; background:#ddd;">
-                    <div class="barra" style="width:<?= $porcentaje ?>%"></div>
-                </div>
-                <?= round($porcentaje, 1) ?>%
-            </td>
         </tr>
         <?php endwhile; ?>
     </table>
