@@ -73,6 +73,6 @@ if (isset($_POST['dificultad']) && isset($_POST['numColores'])) {
         </form>
     <?php endif; ?>
 
-    <br><a href="estadisticas.php">Ver estadísticas</a> | <a href="logout.php">Cerrar sesión</a>
+    <br><a href="estadisticas.php">Ver estadísticas</a>
 </body>
 </html>
