@@ -1,5 +1,10 @@
 <?php
 session_start();
+if (!isset($_SESSION['nombre'])) {
+    header("Location: login.php");
+    exit();
+}
+
 $combi = $_SESSION['numAleatorio'];
 $numColores = $_SESSION['numColores'];
 $dificultad = strlen($combi);
@@ -12,23 +17,42 @@ if (isset($_POST['color0'])) {
 
     echo "<h1>Simón</h1>";
 
+    // Conectamos y registramos el resultado
+    $conexion = new mysqli("localhost:3307", "root", "", "bdsimon");
+    if ($conexion->connect_error) {
+        die("Error de conexión");
+    }
+
+    $nombreUsu = $_SESSION['nombre'];
+    $sqlUsuario = "SELECT Codigo FROM usuarios WHERE Nombre='$nombreUsu'";
+    $resUsuario = $conexion->query($sqlUsuario);
+    $row = $resUsuario->fetch_assoc();
+    $codigoUsu = $row['Codigo'];
+
+    $acierto = 0;
     if ($jugada === $combi) {
         echo "<h2>¡Ganaste!</h2>";
+        $acierto = 1;
     } else {
         echo "<h2>Perdiste</h2>";
         echo "<p>La combinación correcta era:</p>";
         for ($i = 0; $i < $dificultad; $i++) {
             $c = $combi[$i];
-            echo "<img src='{$c}.png' height='150px'>";
+            echo "<img src='{$c}.png' height='120px'>";
         }
         echo "<p>Tu combinación fue:</p>";
         for ($i = 0; $i < $dificultad; $i++) {
             $c = $jugada[$i];
-            echo "<img src='{$c}.png' height='150px'>";
+            echo "<img src='{$c}.png' height='120px'>";
         }
     }
 
-    echo '<br><br><a href="inicio3.php">Volver a jugar</a>';
+    // Guardamos el resultado
+    $sqlInsert = "INSERT INTO jugadas (codigousu, acierto) VALUES ($codigoUsu, $acierto)";
+    $conexion->query($sqlInsert);
+    $conexion->close();
+
+    echo '<br><br><a href="inicio3.php">Volver a jugar</a> | <a href="estadisticas.php">Ver estadísticas</a>';
     exit;
 }
 ?>
@@ -48,14 +72,14 @@ if (isset($_POST['color0'])) {
 
         <?php
         for ($i = 0; $i < $dificultad; $i++) {
-            echo "<img id='img{$i}' src='n.png' height='200px'>";
+            echo "<img id='img{$i}' src='n.png' height='150px'>";
         }
         for ($i = 0; $i < $dificultad; $i++) {
             echo "<input type='hidden' name='color{$i}' id='color{$i}'>";
         }
         ?>
 
-        <br>
+        <br><br>
         <div class="contenedor">
             <?php
             $nombresColores = [
