@@ -41,8 +41,8 @@ $resultado = $conexion->query($sql);
         <tr>
             <th>Código</th>
             <th>Nombre</th>
-            <th>Total Jugadas</th>
             <th>Aciertos</th>
+            <th>Grafica</th>
         </tr>
         <?php while ($fila = $resultado->fetch_assoc()): 
             $porcentaje = ($fila['total_jugadas'] > 0) ? 
@@ -51,8 +51,8 @@ $resultado = $conexion->query($sql);
         <tr>
             <td><?= $fila['Codigo'] ?></td>
             <td><?= htmlspecialchars($fila['Nombre']) ?></td>
-            <td><?= $fila['total_jugadas'] ?></td>
             <td><?= $fila['total_aciertos'] ?></td>
+            <td></td>
         </tr>
         <?php endwhile; ?>
     </table>
