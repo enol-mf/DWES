@@ -55,7 +55,6 @@ if (isset($_POST['color0'])) {
 }
 ?>
 
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
