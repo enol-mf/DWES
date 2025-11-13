@@ -17,7 +17,6 @@ if (isset($_POST['color0'])) {
 
     echo "<h1>Simón</h1>";
 
-    // Conectamos y registramos el resultado
     $conexion = new mysqli("localhost:3307", "root", "", "bdsimon");
     if ($conexion->connect_error) {
         die("Error de conexión");
@@ -47,7 +46,6 @@ if (isset($_POST['color0'])) {
         }
     }
 
-    // Guardamos el resultado
     $sqlInsert = "INSERT INTO jugadas (codigousu, acierto) VALUES ($codigoUsu, $acierto)";
     $conexion->query($sqlInsert);
     $conexion->close();
@@ -56,6 +54,7 @@ if (isset($_POST['color0'])) {
     exit;
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="es">
