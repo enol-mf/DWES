@@ -38,6 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <label>Clave:</label>
         <input type="password" name="clave" required><br><br>
         <input type="submit" value="Entrar">
+        <input type="submit" value="Crear cuenta">
     </form>
 </body>
 </html>
