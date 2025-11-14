@@ -57,6 +57,6 @@ $resultado = $conexion->query($sql);
         <?php endwhile; ?>
     </table>
 
-    <a href="inicio3.php">⬅ Volver al juego</a>
+    <a href="inicio3.php">Volver al juego</a>
 </body>
 </html>
