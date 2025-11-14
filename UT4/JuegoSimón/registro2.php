@@ -7,9 +7,9 @@ if ($conexion->connect_error) {
 }
 
 if (!empty($_POST['usuario']) && !empty($_POST['clave']) && !empty($_POST['clave2'])) {
-    $usuario = trim($_POST['usuario']);
-    $clave = trim($_POST['clave']);
-    $clave2 = trim($_POST['clave2']);
+    $usuario = ($_POST['usuario']);
+    $clave = ($_POST['clave']);
+    $clave2 = ($_POST['clave2']);
 
     if ($clave !== $clave2) {
         echo "Las contraseñas no coinciden";
