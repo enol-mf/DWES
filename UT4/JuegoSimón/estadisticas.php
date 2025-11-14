@@ -12,8 +12,8 @@ if ($conexion->connect_error) {
 
 $sql = "
     SELECT u.Codigo, u.Nombre, 
-           COUNT(j.codjugada) AS total_jugadas,
-           SUM(j.acierto) AS total_aciertos
+    COUNT(j.codjugada) AS total_jugadas,
+    SUM(j.acierto) AS total_aciertos
     FROM usuarios u
     LEFT JOIN jugadas j ON u.Codigo = j.codigousu
     GROUP BY u.Codigo, u.Nombre
