@@ -46,7 +46,7 @@ if (isset($_POST['usuario']) && isset($_POST['clave']) && isset($_POST['clave2']
         <label>Usuario: </label><input type="text" name="usuario"><br><br>
         <label>Contraseña: </label><input type="password" name="clave"><br><br>
         <label>Repetir Contraseña: </label><input type="password" name="clave2"><br><br>
-        <input type="submit" value="Crear">
+        <input type="submit" value="Crear"> <br><br>
     </form>
     <form action="login.php" method="post">
         <input type="submit" value="Volver al login">
