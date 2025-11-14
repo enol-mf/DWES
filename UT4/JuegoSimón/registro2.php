@@ -6,7 +6,7 @@ if ($conexion->connect_error) {
     die("Error de conexión a la base de datos");
 }
 
-if (!empty($_POST['usuario']) && !empty($_POST['clave']) && !empty($_POST['clave2'])) {
+if (!isset($_POST['usuario']) && !isset($_POST['clave']) && !isset($_POST['clave2'])) {
     $usuario = ($_POST['usuario']);
     $clave = ($_POST['clave']);
     $clave2 = ($_POST['clave2']);
