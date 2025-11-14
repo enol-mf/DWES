@@ -39,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <input type="password" name="clave" required><br><br>
         <input type="submit" value="Entrar"> <br><br>
     </form>
-    <form action="registro.php" method="post">
+    <form action="registro2.php" method="post">
         <input type="submit" value="Crear cuenta">
     </form>
 </body>
