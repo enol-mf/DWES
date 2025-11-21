@@ -1,6 +1,4 @@
 <?php
-session_start();
-
 $conexion = new mysqli("localhost:3307", "root", "", "ejformulario");
 if ($conexion->connect_error) {
     die("Error de conexión a la base de datos");
