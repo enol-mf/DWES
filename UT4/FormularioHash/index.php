@@ -61,6 +61,7 @@ if (isset($_POST['nom'], $_POST['mail'], $_POST['web'], $_POST['pass'], $_POST['
     echo "<p>Website: $web</p>";
     echo "<p>Comment: $comment</p>";
     echo "<p>Gender: $gender</p>";
+    echo $passErr;
 
     $sqlInsertDatos = "INSERT INTO datos (name, email, website, password, comment, gender) VALUES ('$nom', '$mail', '$web', '$pass', '$comment', '$gender')";
     $conexion->query($sqlInsertDatos);
