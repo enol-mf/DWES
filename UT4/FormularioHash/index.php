@@ -13,21 +13,35 @@ function test_input($valor) {
 }
 
 
-if (isset($_POST['name'], $_POST['mail'], $_POST['web'], $_POST['password'], $_POST['comment'], $_POST['gender'])) {
+if (isset($_POST['nom'], $_POST['mail'], $_POST['web'], $_POST['pass'], $_POST['comment'], $_POST['gender'])) {
     
-    $name = htmlspecialchars($_POST['name']);
-    $mail = htmlspecialchars($_POST['mail']);
-    $web = htmlspecialchars($_POST['web']);
-    $comment = htmlspecialchars($_POST['comment']);
-    $gender = htmlspecialchars($_POST['gender']);
+    $nom = $_POST['nom'];
+    $mail = $_POST['mail'];
+    $web = $_POST['web'];
+    $pass = $_POST['pass'];
+    $comment = $_POST['comment'];
+    $gender = $_POST['gender'];
+
     $mailErr = "Email correcto";
     $nameErr = "Nombre correcto";
+    $passErr = ""; 
 
-    if (empty($_POST["name"])) {
+
+    if (empty($pass)) {
+        $passErr = "La contraseña es obligatoria";
+    } else {
+        if (!preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/', $pass)) {
+            $passErr = "La contraseña debe tener mínimo 8 caracteres, mayúscula, minúscula, número y carácter especial";
+        } else {
+            $pass = password_hash($pass, PASSWORD_DEFAULT);
+        }
+    }
+    
+    if (empty($_POST["nom"])) {
         $nameErr = "El nombre es obligatorio";
     } else {
-        $name = test_input($_POST["name"]);
-        if (!preg_match("/^[a-zA-Z ]*$/",$name)) {
+        $name = test_input($_POST["nom"]);
+        if (!preg_match("/^[a-zA-Z ]*$/",$nom)) {
         $nameErr = "Únicamente se permiten letras y espacios";
         }
     }
@@ -41,11 +55,16 @@ if (isset($_POST['name'], $_POST['mail'], $_POST['web'], $_POST['password'], $_P
     }
 
     echo "<p>Nombre: $name</p>";
+    echo $nameErr;
     echo "<p>Email: $mail</p>";
-    echo "<p>Website: $web</p>";
     echo $mailErr;
+    echo "<p>Website: $web</p>";
     echo "<p>Comment: $comment</p>";
     echo "<p>Gender: $gender</p>";
+
+    $sqlInsertDatos = "INSERT INTO datos (name, email, website, password, comment, gender) VALUES ('$nom', '$mail', '$web', '$pass', '$comment', '$gender')";
+    $conexion->query($sqlInsertDatos);
+    $conexion->close();
 }
 
 ?>
@@ -59,13 +78,13 @@ if (isset($_POST['name'], $_POST['mail'], $_POST['web'], $_POST['password'], $_P
 </head>
 <body>
 <form action="index.php" method="post">
-    <label for="name">Name: </label><input type="text" name="name" id="name"><br><br>
+    <label for="name">Name: </label><input type="text" name="nom" id="nom"><br><br>
     <label for="mail">Email: </label><input type="text" name="mail" id="mail"><br><br>
     <label for="web">Website: </label><input type="text" name="web" id="web"><br><br>
-    <label for="password">Password: </label><input type="password" name="password" id="password"><br><br>
+    <label for="password">Password: </label><input type="password" name="pass" id="pass"><br><br>
     <label for="comment">Comment: </label><textarea name="comment" id="comment"></textarea><br><br>
-    <label for="">Gender</label><input type="radio" name="gender" id="female" value="Female">
-    <label for="female">Female</label><input type="radio" name="gender" id="male" value="Male"><label for="male">Male</label><br><br>
+    <label for="">Gender</label><input type="radio" name="gender" id="female" value="M">
+    <label for="female">M</label><input type="radio" name="gender" id="male" value="H"><label for="male">H</label><br><br>
     <input type="submit" value="Submit">
 </form>
 </body>
