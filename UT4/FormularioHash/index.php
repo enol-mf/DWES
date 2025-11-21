@@ -12,7 +12,6 @@ function test_input($valor) {
     return $valor;
 }
 
-
 if (isset($_POST['nom'], $_POST['mail'], $_POST['web'], $_POST['pass'], $_POST['comment'], $_POST['gender'])) {
     
     $nom = $_POST['nom'];
