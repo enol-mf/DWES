@@ -22,16 +22,21 @@ if (isset($_POST['nom'], $_POST['mail'], $_POST['web'], $_POST['pass'], $_POST['
     $comment = $_POST['comment'];
     $gender = $_POST['gender'];
 
-    $mailErr = "Email correcto";
-    $nameErr = "Nombre correcto";
-    $passErr = ""; 
+    $mailErr = "";
+    $nameErr = "";
+    $passErr = "";
 
+    $nomValido = true;
+    $mailValido = true;
+    $passValido = true;
 
     if (empty($pass)) {
         $passErr = "La contraseña es obligatoria";
+        $passValido = false;
     } else {
         if (!preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/', $pass)) {
             $passErr = "La contraseña debe tener mínimo 8 caracteres, mayúscula, minúscula, número y carácter especial";
+            $passValido = false; 
         } else {
             $pass = password_hash($pass, PASSWORD_DEFAULT);
         }
@@ -39,32 +44,39 @@ if (isset($_POST['nom'], $_POST['mail'], $_POST['web'], $_POST['pass'], $_POST['
     
     if (empty($_POST["nom"])) {
         $nameErr = "El nombre es obligatorio";
+        $nomValido = false;
     } else {
         $name = test_input($_POST["nom"]);
         if (!preg_match("/^[a-zA-Z ]*$/",$nom)) {
         $nameErr = "Únicamente se permiten letras y espacios";
+        $nomValido = false;
         }
     }
 
     if (empty($mail)) {
         $mailErr = "Se requiere Email";
+        $mailValido = false;
     } else {
         if (!filter_var($mail, FILTER_VALIDATE_EMAIL)) {
         $mailErr = "Fomato de Email invalido";
+        $mailValido = false;
         }
     }
 
     echo "<p>Nombre: $name</p>";
-    echo $nameErr;
     echo "<p>Email: $mail</p>";
-    echo $mailErr;
     echo "<p>Website: $web</p>";
     echo "<p>Comment: $comment</p>";
     echo "<p>Gender: $gender</p>";
+    echo $nameErr;
+    echo $mailErr;
     echo $passErr;
 
-    $sqlInsertDatos = "INSERT INTO datos (name, email, website, password, comment, gender) VALUES ('$nom', '$mail', '$web', '$pass', '$comment', '$gender')";
-    $conexion->query($sqlInsertDatos);
+    if ($nomValido && $mailValido && $passValido) {
+        $sqlInsertDatos = "INSERT INTO datos (name, email, website, password, comment, gender) VALUES ('$nom', '$mail', '$web', '$pass', '$comment', '$gender')";
+        $conexion->query($sqlInsertDatos);
+    }
+
     $conexion->close();
 }
 
