@@ -1,20 +1,17 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['login'])) {
-    header("Location: index.php");
-    exit;
-}
-
+// Conexion
 $conexion = new mysqli("localhost:3307", "jugador", "", "jeroglifico");
 
 if ($conexion->connect_error) {
     die("Error de conexión: " . $conexion->connect_error);
 }
-
+//
 //  Obtener la fecha del sistema
 $fecha = date("2022-05-05");
 echo "<h2>Resultados del día: $fecha</h2>";
+//
 
 //  Sumar un punto a los jugadores que han acertado
 $update_sql = "
@@ -24,18 +21,22 @@ $update_sql = "
         SELECT r.login
         FROM respuestas r
         JOIN solucion s 
-        ON r.respuesta COLLATE utf8_spanish_ci = s.solucion COLLATE utf8_spanish_ci
-        WHERE r.fecha = '$fecha'
+        ON r.respuesta = s.solucion
+        WHERE r.fecha = ?
     )
 ";
-$conexion->query($update_sql);
+$stmt = $conexion->prepare($update_sql);
+$stmt->bind_param("s", $fecha);
+$stmt->execute();
+$stmt->close();
+//
 
 // Listar jugadores que han acertado
 $acertantes_sql = "
-    SELECT r.login, r.hora
+    SELECT r.login
     FROM respuestas r
     JOIN solucion s 
-    ON r.respuesta COLLATE utf8_spanish_ci = s.solucion COLLATE utf8_spanish_ci
+    ON r.respuesta = s.solucion  
     WHERE r.fecha = '$fecha'
 ";
 $result_acertantes = $conexion->query($acertantes_sql);
@@ -53,5 +54,6 @@ if ($num_acertantes > 0) {
 } else {
     echo "<p>No hay acertantes todavía.</p>";
 }
+//
 
 ?>
