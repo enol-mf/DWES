@@ -48,7 +48,7 @@ echo "<h3>Jugadores acertantes:</h3>";
 if ($num_acertantes > 0) {
     echo "<ul>";
     while ($row = $result_acertantes->fetch_assoc()) {
-        echo "<li>" . htmlspecialchars($row['login']) . " - " . $row['hora'] . "</li>";
+        echo "<li>" . htmlspecialchars($row['login']) . "</li>";
     }
     echo "</ul>";
 } else {
