@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 if (!isset($_SESSION['login'])) {
     header("Location: index.php");
     exit;
@@ -7,46 +8,50 @@ if (!isset($_SESSION['login'])) {
 
 $conexion = new mysqli("localhost:3307", "jugador", "", "jeroglifico");
 
-$fecha = date("Y-m-d");
+if ($conexion->connect_error) {
+    die("Error de conexión: " . $conexion->connect_error);
+}
 
-$sol = $conexion->query("SELECT solucion FROM solucion WHERE fecha='$fecha'");
-$correcta = ($sol->num_rows == 1) ? $sol->fetch_assoc()["solucion"] : "";
+//  Obtener la fecha del sistema
+$fecha = date("2022-05-05");
+echo "<h2>Resultados del día: $fecha</h2>";
 
-$res = $conexion->query("SELECT * FROM respuestas WHERE fecha='$fecha'");
+//  Sumar un punto a los jugadores que han acertado
+$update_sql = "
+    UPDATE jugador
+    SET puntos = puntos + 1
+    WHERE login IN (
+        SELECT r.login
+        FROM respuestas r
+        JOIN solucion s 
+        ON r.respuesta COLLATE utf8_spanish_ci = s.solucion COLLATE utf8_spanish_ci
+        WHERE r.fecha = '$fecha'
+    )
+";
+$conexion->query($update_sql);
 
-$acertantes = [];
-$fallos = [];
+// Listar jugadores que han acertado
+$acertantes_sql = "
+    SELECT r.login, r.hora
+    FROM respuestas r
+    JOIN solucion s 
+    ON r.respuesta COLLATE utf8_spanish_ci = s.solucion COLLATE utf8_spanish_ci
+    WHERE r.fecha = '$fecha'
+";
+$result_acertantes = $conexion->query($acertantes_sql);
+$num_acertantes = $result_acertantes->num_rows;
 
-while ($fila = $res->fetch_assoc()) {
-    if ($fila['solucion'] == $correcta) {
-        $acertantes[] = $fila;
-    } else {
-        $fallos[] = $fila;
+echo "<p>Número de jugadores que han acertado: $num_acertantes</p>";
+
+echo "<h3>Jugadores acertantes:</h3>";
+if ($num_acertantes > 0) {
+    echo "<ul>";
+    while ($row = $result_acertantes->fetch_assoc()) {
+        echo "<li>" . htmlspecialchars($row['login']) . " - " . $row['hora'] . "</li>";
     }
+    echo "</ul>";
+} else {
+    echo "<p>No hay acertantes todavía.</p>";
 }
 
-// 3) Sumar puntos a acertantes
-foreach ($acertantes as $a) {
-    $login = $a['login'];
-    $conexion->query("UPDATE jugador SET puntos = puntos + 1 WHERE login='$login'");
-}
-?>
-
-Fecha de hoy: <?php echo $fecha; ?><br><br>
-
-Acertantes: <?php echo count($acertantes); ?><br>
-Fallos: <?php echo count($fallos); ?><br><br>
-
-<b>Listado de acertantes</b><br>
-<?php
-foreach ($acertantes as $a) {
-    echo $a['login'] . " a las " . $a['hora'] . "<br>";
-}
-?>
-
-<br><b>Listado de fallos</b><br>
-<?php
-foreach ($fallos as $f) {
-    echo $f['login'] . " a las " . $f['hora'] . "<br>";
-}
 ?>
