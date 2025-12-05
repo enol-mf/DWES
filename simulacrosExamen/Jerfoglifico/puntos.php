@@ -24,10 +24,8 @@ while ($fila = $resultado->fetch_assoc()) {
     $login = $fila["login"];
     $puntos = $fila["puntos"];
 
-    // Escala: 3px por punto
     $ancho = $puntos * 3;
 
-    // Ancho máximo permitido
     if ($ancho > 300) {
         $ancho = 300;
     }

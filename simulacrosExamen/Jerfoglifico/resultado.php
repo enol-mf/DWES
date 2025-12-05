@@ -9,14 +9,11 @@ $conexion = new mysqli("localhost:3307", "jugador", "", "jeroglifico");
 
 $fecha = date("Y-m-d");
 
-// 1) Obtener solución correcta del día
 $sol = $conexion->query("SELECT solucion FROM solucion WHERE fecha='$fecha'");
 $correcta = ($sol->num_rows == 1) ? $sol->fetch_assoc()["solucion"] : "";
 
-// 2) Obtener respuestas del día
 $res = $conexion->query("SELECT * FROM respuestas WHERE fecha='$fecha'");
 
-// contadores
 $acertantes = [];
 $fallos = [];
 

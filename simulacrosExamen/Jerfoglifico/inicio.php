@@ -8,7 +8,7 @@ if (!isset($_SESSION['login'])) {
 $conexion = new mysqli("localhost:3307", "jugador", "", "jeroglifico");
 
 $usuario = $_SESSION['login'];
-$fecha = date("Ymd"); // 20240216
+$fecha = date("Ymd"); 
 $imagen = "images/20240216.jpg";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
