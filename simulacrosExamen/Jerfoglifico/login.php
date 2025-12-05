@@ -1,21 +1,24 @@
 <?php
-// Conexión a la base de datos
 $conexion = new mysqli("localhost:3307", "jugador", "", "jeroglifico");
 if ($conexion->connect_error) {
     die("Error de conexión");
 }
 
-// Procesar login
+session_start();
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $login = $_POST['login'];
     $clave = $_POST['clave'];
 
-    $result = $conexion->query("SELECT * FROM jugador WHERE login='$login' AND clave='$clave'");
+    $sql = "SELECT * FROM jugador WHERE login='$login' AND clave='$clave'";
+    $result = $conexion->query($sql);
 
-    if ($result && $result->num_rows == 1) {
-        echo "Login correcto. Bienvenido, $login";
+    if ($result->num_rows == 1) {
+        $_SESSION['login'] = $login;
+        header("Location: inicio.php");
+        exit;
     } else {
-        echo "Usuario o contraseña incorrectos.";
+        echo "Usuario o contraseña incorrectos.<br><br>";
     }
 }
 
