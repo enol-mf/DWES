@@ -33,7 +33,7 @@ $stmt->close();
 
 // Listar jugadores que han acertado
 $acertantes_sql = "
-    SELECT r.login
+    SELECT r.login, r.hora
     FROM respuestas r
     JOIN solucion s 
     ON r.respuesta = s.solucion  
