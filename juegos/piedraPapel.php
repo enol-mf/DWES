@@ -49,7 +49,7 @@ if (isset($_POST['jugada'])) {
 <body>
     <h1>Juego de Piedra, Papel o Tijera</h1>
 
-    <form action="juego_sin_estilos.php" method="post">
+    <form action="piedraPapel.php" method="post">
         <label for="jugada">Elige tu jugada:</label><br>
         
         <input type="radio" id="piedra" name="jugada" value="piedra" required>
