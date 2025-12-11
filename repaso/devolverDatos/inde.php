@@ -13,8 +13,7 @@
         echo "No estas conectado";
     }
 
-    // $sql = "SELECT * FROM users WHERE user = 'Spongebob'";
-    $sql = "SELECT * FROM users";
+    $sql = "SELECT * FROM users WHERE user = 'Spongebob'";
     $result = mysqli_query($connection, $sql);
     
     if(mysqli_num_rows($result)>0) {
